@@ -1,0 +1,44 @@
+[create-header-md]
+other = "Erstelle eine content/_header.md Datei um dies anzupassen"
+
+[create-footer-md]
+other = "Erstelle eine content/_footer.md Datei um dies anzupassen"
+
+[Search-placeholder]
+other = "Suche..."
+
+[Clear-History]
+other = "Verlauf löschen"
+
+[Page]
+other = "Seite"
+
+[Next-Pages]
+other = "Nächste Seiten"
+
+[Previous-Pages]
+other = "Vorherige Seiten"
+
+[pagination-on]
+other = "von"
+
+[Attachments-label]
+other = "Anhänge"
+
+[title-404]
+other = "Fehler"
+
+[message-404]
+other = "Oops, diese Seite scheint nicht zu existieren"
+
+[Go-to-homepage]
+other = "Zur Startseite"
+
+[Edit-this-page]
+other = "Diese Seite verbessern"
+
+[Expand-title]
+other = "Vergrössern..."
+
+[last-update-on]
+other = "Letzte Aktualisierung"
