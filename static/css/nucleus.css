@@ -789,10 +789,8 @@ input[type='submit'] {
   border: inherit;
 }
 
-#select-language {
-  padding: 5px;
-  width: 95%;
-  margin: 0 auto;
+.lang-menu a.active {
+  color: #aaa
 }
 
 /*# sourceMappingURL=nucleus.css.map */
