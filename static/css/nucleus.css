@@ -793,4 +793,8 @@ input[type='submit'] {
   color: #aaa
 }
 
+.pagination {
+  font-size: 80%;
+}
+
 /*# sourceMappingURL=nucleus.css.map */
