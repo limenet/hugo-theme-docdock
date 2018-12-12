@@ -615,4 +615,10 @@ input[type="submit"] {
   white-space: nowrap;
   border: inherit; }
 
+#select-language{
+      padding: 5px;
+    width: 95%;
+    margin: 0 auto;
+}
+
 /*# sourceMappingURL=nucleus.css.map */
