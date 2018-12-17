@@ -1,3 +1,21 @@
-<link href="{{"mermaid/mermaid.css" | relURL}}" type="text/css" rel="stylesheet"/>
-<script defer src="{{"mermaid/mermaid.js" | relURL}}">mermaid.initialize({startOnLoad:true});</script>
+{{ $mermaid := resources.Get "mermaid/mermaid.css"}}
+{{ $css := slice $mermaid | resources.Concat "css/mermaid.css"  | resources.Minify | resources.Fingerprint  }}
+
+<link
+  rel="stylesheet"
+  href="{{ $css.Permalink }}"
+  integrity="{{ $css.Data.Integrity }}"
+>
+
+
+{{ $mermaid := resources.Get "mermaid/mermaid.js"}}
+{{ $js := slice $mermaid | resources.Concat "js/mermaid.js"  | resources.Minify | resources.Fingerprint  }}
+
+<script
+  src="{{ $js.Permalink }}"
+  integrity="{{ $js.Data.Integrity }}"
+/>mermaid.initialize({startOnLoad:true});</script>
+
+
+
 <div class="mermaid" align="{{ if .Get "align" }}{{ .Get "align" }}{{ else }}center{{ end }}" >{{ safeHTML .Inner  }}</div>
