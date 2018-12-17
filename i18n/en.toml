@@ -42,3 +42,10 @@ other = "Expand me..."
 
 [last-update-on]
 other = "Last update on"
+
+[reading-time]
+one = "Time to read: one minute"
+other = "Time to read: {{.Count}} minutes"
+
+[toc]
+other = "Table of Contents"

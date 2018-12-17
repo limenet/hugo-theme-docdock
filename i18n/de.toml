@@ -42,3 +42,10 @@ other = "Vergrössern..."
 
 [last-update-on]
 other = "Letzte Aktualisierung"
+
+[reading-time]
+one = "Benötigte Lesezeit: eine Minute"
+other = "Benötigte Lesezeit: {{.Count}} Minuten"
+
+[toc]
+other = "Inhaltsverzeichnis"

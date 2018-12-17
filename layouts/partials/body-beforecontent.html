@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header-web">
   <div class="logo">
     {{ partial "header.html" . }}
   </div>
@@ -14,6 +14,9 @@
         {{- end}}
     </nav>
   {{- end}}
+</header>
+<header class="header-print">
+  Header
 </header>
 <article>
   <aside>
@@ -40,7 +43,7 @@
     <div class="nav-select">
       <center>Navigation :
         <select onchange="javascript:location.href = this.value;">
-          {{partial "flex/selectnavigation.html" .}}
+          {{partial "selectnavigation.html" .}}
         </select>
       </center>
     </div>
@@ -50,9 +53,16 @@
         <div class="searchbox">
           <input data-search-input id="search-by" type="text" placeholder="{{T "Search-placeholder"}}">
         </div>
-        <script type="text/javascript" src="{{"js/lunr.min.js" | relURL}}"></script>
-        <script type="text/javascript" src="{{"js/auto-complete.js" | relURL}}"></script>
-        <link href="{{"css/auto-complete.css" | relURL}}" rel="stylesheet">
+
+        {{ $autocomplete := resources.Get "css/auto-complete.css"}}
+        {{ $css := slice $autocomplete | resources.Concat "css/search-bundle.css"  | resources.Minify | resources.Fingerprint  }}
+
+        <link
+          rel="stylesheet"
+          href="{{ $css.Permalink }}"
+          integrity="{{ $css.Data.Integrity }}"
+        />
+
         <script type="text/javascript">
           {{ if .Site.IsMultiLingual }}
               var baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
@@ -60,9 +70,28 @@
               var baseurl = "{{.Site.BaseURL}}";
           {{ end }}
         </script>
-        <script type="text/javascript" src="{{"js/search.js" | relURL}}"></script>
+
+        {{ $lunr := resources.Get "js/lunr.min.js"}}
+        {{ $autocomplete := resources.Get "js/auto-complete.js"}}
+        {{ $search := resources.Get "js/search.js"}}
+        {{ $js := slice $lunr $autocomplete $search | resources.Concat "js/search-bundle.js"  | resources.Minify | resources.Fingerprint  }}
+
+        <script
+          src="{{ $js.Permalink }}"
+          integrity="{{ $js.Data.Integrity }}"
+        /></script>
+
       </div>
     {{- end}}
 
 
     {{if not .IsHome}}<h1>{{.Title}}</h1>{{end}}
+
+    {{if not .IsHome}}
+    <small>{{ i18n "reading-time" .ReadingTime }}</small>
+    <br><br>
+    <strong>{{ i18n "toc" . }}</strong>
+    <br>
+    {{ .TableOfContents }}
+    <hr>
+    {{end}}

@@ -1,0 +1,22 @@
+{{ $featherlight := resources.Get "css/featherlight.min.css"}}
+{{ $css := slice $featherlight | resources.Concat "css/scripts.css"  | resources.Minify | resources.Fingerprint  }}
+
+<link
+    rel="stylesheet"
+    href="{{ $css.Permalink }}"
+    integrity="{{ $css.Data.Integrity }}"
+/>
+{{if eq .Site.Params.highlightClientSide true}}
+<script src="{{"js/highlight.pack.js" | relURL}}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{{end}}
+
+{{ $clipboard := resources.Get "js/clipboard.min.js"}}
+{{ $featherlight := resources.Get "js/featherlight.min.js"}}
+{{ $theme := resources.Get "js/theme.js"}}
+{{ $js := slice $clipboard $featherlight $theme | resources.Concat "js/scripts.js"  | resources.Minify | resources.Fingerprint  }}
+
+<script
+  src="{{ $js.Permalink }}"
+  integrity="{{ $js.Data.Integrity }}"
+/></script>
