@@ -14,10 +14,10 @@ other = "Verlauf löschen"
 other = "Seite"
 
 [Next-Pages]
-other = "Nächste Seiten"
+other = "Nächste Seite(n)"
 
 [Previous-Pages]
-other = "Vorherige Seiten"
+other = "Vorherige Seite(n)"
 
 [pagination-on]
 other = "von"
