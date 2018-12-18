@@ -20,6 +20,9 @@
 </header>
 <article>
   <aside>
+    {{- partial "language-selector.html" . }}
+
+
     <ul class="menu">
       {{- if not .Site.Params.disableHomeIcon}}
           <li data-nav-id="{{"/" | relLangURL}}" class="dd-item">
@@ -32,8 +35,6 @@
       {{- partial "menu.html" . }}
 
     </ul>
-
-    {{- partial "language-selector.html" . }}
     <section>
         {{- partial "menu-footer.html" . }}
     </section>

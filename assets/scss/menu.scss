@@ -16,6 +16,11 @@ article > aside {
   width: 20rem;
   overflow-y: auto;
 
+  .lang-menu {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .menu {
     line-height: 2rem;
     list-style-type: none;
