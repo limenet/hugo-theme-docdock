@@ -47,7 +47,7 @@
   {{ if .Site.GetPage "page" "_footer.md" }}
     {{(.Site.GetPage "page" "_footer.md").Content}}
   {{else}}
-    {{ T "create-footer-md" }}
+    {{ .Site.Copyright }}
   {{end}}
 {{end}}
 
