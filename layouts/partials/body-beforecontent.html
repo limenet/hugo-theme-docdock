@@ -88,7 +88,7 @@
 
     {{if not .IsHome}}<h1>{{.Title}}</h1>{{end}}
 
-    {{if not .IsHome}}
+    {{if and (not .IsHome) (.TableOfContents)}}
     <small>{{ i18n "reading-time" .ReadingTime }}</small>
     <br><br>
     <strong>{{ i18n "toc" . }}</strong>
