@@ -42,3 +42,10 @@ other = "Déroulez-moi..."
 
 [last-update-on]
 other = "Dernière mise à jour le "
+
+[reading-time]
+one = "Temps de lecture: une minute"
+other = "Temps de lecture: {{.Count}} minutes"
+
+[toc]
+other = "Table des matières"
