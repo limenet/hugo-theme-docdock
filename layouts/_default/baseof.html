@@ -6,7 +6,7 @@
   <body data-url="{{ .RelPermalink }}">
     {{ partial "body-beforecontent.html" . }}
 
-    {{ block "main" . }} {{ end }}
+    <div class="js-toc-content">{{ block "main" . }} {{ end }}</div>
 
     {{ partial "body-aftercontent.html" . }}
 

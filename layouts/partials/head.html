@@ -11,7 +11,8 @@
 {{ $fa := resources.Get "css/font-awesome.min.css"}}
 {{ $nucleus := resources.Get "css/nucleus.css"}}
 {{ $bootstrap := resources.Get "css/bootstrap.min.css"}}
-{{ $css := slice $fa $nucleus $bootstrap | resources.Concat "css/app.css"  | resources.Minify | resources.Fingerprint  }}
+{{ $tocbot := resources.Get "tocbot/tocbot.css"}}
+{{ $css := slice $fa $nucleus $bootstrap $tocbot | resources.Concat "css/app.css"  | resources.Minify | resources.Fingerprint  }}
 
 {{ $options := (dict "outputStyle" "compressed" ) }}
 {{ $theme := resources.Get "scss/style.scss" | resources.ToCSS $options |  minify | fingerprint }}
@@ -38,7 +39,8 @@
 
 
 {{ $jquery := resources.Get "js/jquery-2.x.min.js"}}
-{{ $js := slice $jquery | resources.Concat "js/app.js"  | resources.Minify | resources.Fingerprint  }}
+{{ $tocbot := resources.Get "tocbot/tocbot.js"}}
+{{ $js := slice $jquery $tocbot | resources.Concat "js/app.js"  | resources.Minify | resources.Fingerprint  }}
 
 <script
   src="{{ $js.Permalink }}"
