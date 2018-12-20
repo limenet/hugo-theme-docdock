@@ -42,10 +42,27 @@
   <section class="page">
 
     <div class="nav-select">
-      <center>Navigation :
+      <center>{{ i18n "navigation" }}:
         <select onchange="javascript:location.href = this.value;">
           {{partial "selectnavigation.html" .}}
         </select>
+      </center>
+
+      <center>
+        <div class="lang-menu">
+          {{ $siteLanguages := .Site.Languages}}
+          {{ $pageLang := .Page.Lang}}
+          {{ range .Page.AllTranslations }}
+            {{ $translation := .}}
+            {{ range $siteLanguages }}
+              {{ if eq $translation.Lang .Lang }}
+                {{ if not (eq $pageLang .Lang)}}
+                  <a href="{{ $translation.URL }}">{{ .LanguageName }}</a>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
       </center>
     </div>
 

@@ -127,3 +127,15 @@ article > aside {
     margin: 2rem 0rem;
   }
 }
+
+.nav-select {
+  select {
+    margin-bottom: 10px;
+  }
+  .lang-menu {
+    margin-top: 0;
+    a {
+      margin: 0 5px;
+    }
+  }
+}
